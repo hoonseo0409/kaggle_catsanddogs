@@ -100,11 +100,11 @@ with tf.device('/cpu:0'):
         # fit 삭제함 멈춰서 여기에 fit 넣어야 zca화이트닝 나오니까
         if 'dogs' in i:
             for batch in datagen.flow(x, batch_size=1,
-                                      save_to_dir='../input/train/aug', save_prefix='dogs', save_format='jpg'):
+                                      save_to_dir='input/train/aug', save_prefix='dogs', save_format='jpg'):
                 break  # otherwise the generator would loop indefinitely
         elif 'cats' in i:
             for batch in datagen.flow(x, batch_size=1,
-                                      save_to_dir='../input/train/aug', save_prefix='cats', save_format='jpg'):
+                                      save_to_dir='input/train/aug', save_prefix='cats', save_format='jpg'):
                 break  # otherwise the generator would loop indefinitely
 
     # 오그멘테이션 이미지 학습 세트에 추가
@@ -273,7 +273,7 @@ with tf.device('/cpu:0'):
         plt.imshow(test[i].T)
         plt.show()"""
 
-    """with open('./result.csv', 'w', newline="\n") as f:
+    with open('./result.csv', 'w', newline="\n") as f:
         writer = csv.writer(f, delimiter=',')
         writer.writerow(['Id'] + ['Category'])
         for i in range(0, 1962):
@@ -282,4 +282,4 @@ with tf.device('/cpu:0'):
             else:
                 pred = 0
             filename = test_images[i][14:]
-            writer.writerow([filename] + [pred])"""
+            writer.writerow([filename] + [pred])
